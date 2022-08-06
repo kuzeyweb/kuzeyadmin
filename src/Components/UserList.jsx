@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Navigation } from './Navigation'
-import env from "react-dotenv";
 import Swal from 'sweetalert2'
 import { createBrowserHistory } from 'history';
 import { useSelector } from 'react-redux';
@@ -12,13 +11,13 @@ export const UserList = () => {
     const user = useSelector((state) => state.user);
     
     useState(() => {
-        if(user.loginStatus === false){
+/*         if(user.loginStatus === false){
             history.push('/login');
             history.go('/login');
             return
-          }
+          } */
         const getUsers = async () => {
-            const res = await axios.get(`https://api.kuzeysoftware.com/auth/getall`);
+            const res = await axios.get(`https://localhost:6161/auth/getall`);
             setUsers(res.data)
             
         }
@@ -35,7 +34,7 @@ export const UserList = () => {
             confirmButtonColor: '#b82b28'
           }).then(async (result) => {
             if(result.isConfirmed){
-              const res = await axios.delete(`https://api.kuzeysoftware.com/auth/delete/${id}`,
+              const res = await axios.delete(`https://localhost:6161/auth/delete/${id}`,
               {headers: {
                 'Access-Control-Allow-Origin': '*',
                 "token" : "Bearer " + user.currentUser.accessToken }})

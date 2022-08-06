@@ -42,7 +42,7 @@ export const BlogAdd = () => {
                     "token" : "Bearer " + user.currentUser.accessToken 
                 }
             }
-            const res = await axios.post(`https://api.kuzeysoftware.com/blog/create`, blog, config);
+            const res = await axios.post(`https://localhost:6161/blog/create`, blog, config);
             if (res.data == 'success') {
                 const Toast = Swal.mixin({
                     toast: true,

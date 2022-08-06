@@ -55,7 +55,7 @@ export const UserAdd = () => {
                     "token" : "Bearer " + USER.currentUser.accessToken 
                 }
             }
-            const res = await axios.post(`https://api.kuzeysoftware.com/auth/signup`, user, config);
+            const res = await axios.post(`https://localhost:6161/auth/signup`, user, config);
             if(res.data == 'success'){
                 const Toast = Swal.mixin({
                     toast: true,

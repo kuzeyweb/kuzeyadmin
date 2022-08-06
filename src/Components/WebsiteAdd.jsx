@@ -3,7 +3,6 @@ import axios from 'axios'
 import Swal from 'sweetalert2'
 import { Navigation } from './Navigation';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 export const WebsiteAdd = () => {
@@ -31,7 +30,7 @@ export const WebsiteAdd = () => {
             "keywords" : keywords,
             "USER_ID" : USER.currentUser.ID
         }
-         const res = await axios.post("https://api.kuzeysoftware.com/seo/create" , website);
+         const res = await axios.post("https://localhost:6161/seo/create" , website);
         Swal.close();
         Swal.fire({
             icon : res.data.code ? "error" : "success",
@@ -40,11 +39,11 @@ export const WebsiteAdd = () => {
           });
     };
     useState(() => {
-        if(USER.loginStatus === false){
+/*         if(USER.loginStatus === false){
             history.push('/login');
             history.go('/login');
             return
-          }
+          } */
     })
   return (
     <div>

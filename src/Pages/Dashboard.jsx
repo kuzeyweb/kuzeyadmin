@@ -1,18 +1,21 @@
 import React, { useState } from 'react'
 import {Navigation} from '../Components/Navigation'
-import { useSelector } from 'react-redux/es/exports';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { createBrowserHistory } from 'history';
+import { login } from '../Redux/Auth';
 
 
 export const Dashboard = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const history = createBrowserHistory();
   useState(() => {
     if(user.loginStatus === false){
       history.push('/login');
       history.go('/login');
       return
-    }
+    } 
+   
   })
   return (
     <div>

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Navigation } from './Navigation'
-import Swal from 'sweetalert2'
 import { createBrowserHistory } from 'history';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -65,11 +64,11 @@ export const WebsiteDetails = () => {
 
     useEffect(() => {
 
-        if (user.loginStatus === false) {
+   /*      if (user.loginStatus === false) {
             history.push('/login');
             history.go('/login');
             return
-        }
+        } */
         const getWebsites = async () => {
             const res = await axios.get(`https://api.kuzeysoftware.com/seo/getwebsite/${id}`);
             setSites(res.data);

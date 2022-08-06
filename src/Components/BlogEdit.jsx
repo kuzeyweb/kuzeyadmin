@@ -38,7 +38,7 @@ export const BlogEdit = () => {
                 "token" : "Bearer " + user.currentUser.accessToken 
             }
         }
-        const res = await axios.post(`https://api.kuzeysoftware.com/blog/edit`, blog, config);
+        const res = await axios.post(`https://localhost:6161/blog/edit`, blog, config);
         if (res.data == 'success') {
             const Toast = Swal.mixin({
                 toast: true,
@@ -72,7 +72,7 @@ export const BlogEdit = () => {
       return
     }
       const getBlog = async () => {
-          const res = await axios.get(`https://api.kuzeysoftware.com/blog/getbyid/${id.id}`);
+          const res = await axios.get(`https://localhost:6161/blog/getbyid/${id.id}`);
           setBlog(res.data[0]);
           setTitle(res.data[0].TITLE);
           setBanner(res.data[0].BANNER);

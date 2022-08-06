@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Navigation } from './Navigation'
-import env from "react-dotenv";
 import Swal from 'sweetalert2'
 import { useSelector } from 'react-redux';
 import { createBrowserHistory } from 'history';
@@ -19,7 +18,7 @@ export const BlogList = () => {
             return
           }
         const getBlogs = async () => {
-            const res = await axios.get(`https://api.kuzeysoftware.com/blog/getall`);
+            const res = await axios.get(`https://localhost:6161/blog/getall`);
             setBlogs(res.data)
         }
         getBlogs();
@@ -35,7 +34,7 @@ export const BlogList = () => {
             confirmButtonColor: '#b82b28'
           }).then(async (result) => {
             if(result.isConfirmed){
-              const res = await axios.delete(`https://api.kuzeysoftware.com/blog/delete/${id}`,
+              const res = await axios.delete(`https://localhost:6161/blog/delete/${id}`,
               {headers: {
                 'Access-Control-Allow-Origin': '*',
               "token" : "Bearer " + user.currentUser.accessToken }})

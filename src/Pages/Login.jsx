@@ -15,6 +15,51 @@ export const Login = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
    
+    useState(() => {
+      const user =  {
+        "ID": 28,
+        "FULLNAME": "test",
+        "EMAIL": "f@m",
+        "ROLE": "ROOT",
+        "PROFILE_PICTURE": "http://api.kuzeysoftware.com/public/w5L-79mOG-JPN(3).png",
+        "REGISTERED_AT": "2022-08-01T16:46:08.000Z",
+        "LAST_LOGIN": "2022-08-06T12:00:45.000Z",
+        "LAST_OFFER": 11545,
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjgsInJvbGUiOiJST09UIiwiaWF0IjoxNjU5Nzg4MTM3LCJleHAiOjE2NjAwNDczMzd9.Jsg3qEvJHfEs5yJG-MiTrwWSwpxgrlr1mtWKtcasOWA",
+        "websites" :     [{
+          "WEBSITE_ID": 1,
+          "USER_ID": 28,
+          "PATH": "youtube.com",
+          "KEYWORDS": 7,
+          "FIRST_3": 2,
+          "FOURTO_TEN": 3,
+          "TENTO_HUNDRED": 2
+      },
+      {
+          "WEBSITE_ID": 3,
+          "USER_ID": 28,
+          "PATH": "kuzeysoftware.com",
+          "KEYWORDS": 7,
+          "FIRST_3": 0,
+          "FOURTO_TEN": 0,
+          "TENTO_HUNDRED": 0
+      },
+      {
+          "WEBSITE_ID": 4,
+          "USER_ID": 28,
+          "PATH": "ablemar.com",
+          "KEYWORDS": 5,
+          "FIRST_3": 0,
+          "FOURTO_TEN": 0,
+          "TENTO_HUNDRED": 0
+      }
+  ]
+    }
+      dispatch(login(user));
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+    })
 
     const handleSubmit = async (e) => {
         e.preventDefault();

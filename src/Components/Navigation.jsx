@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { logOut } from '../Redux/Auth';
 import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2'
 
 export const Navigation = () => {
 

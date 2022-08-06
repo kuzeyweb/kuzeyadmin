@@ -12,13 +12,13 @@ export const OfferList = () => {
     const user = useSelector((state) => state.user);
     
     useState(() => {
-        if(user.loginStatus === false){
+/*         if(user.loginStatus === false){
             history.push('/login');
             history.go('/login');
             return
-          }
+          } */
         const getUsers = async () => {
-            const res = await axios.get(`https://api.kuzeysoftware.com/bion/getall`);
+            const res = await axios.get(`https://localhost:6161/bion/getall`);
             setOffers(res.data.sort((a,b) => b.ID - a.ID))
             
         }
